@@ -72,7 +72,7 @@ public class main {
             try {
                 // FileReader fr = new java.io.FileReader(myObj);
                 // BufferedReader br = new BufferedReader(fr);
-                File fis=new File("new.txt");
+                File fis=new File("table_file.txt");
                 Scanner sc=new Scanner(fis);
 
 
@@ -118,9 +118,9 @@ public class main {
                     System.out.println("this is the list size"+list.size());
                     strLine = list.get(i).toString();
                     String[] values = strLine.split(" ;");
-                    for (int b=0 ;b< values.length;b++){
+                    /*for (int b=0 ;b< values.length;b++){
                         System.out.println("newvalue"+values[b]);
-                    }
+                    }*/
 
                     String  AD_USER_ID=values[0],
                             AD_CLIENT_ID=values[1],
@@ -166,12 +166,12 @@ public class main {
    if (values[40]=="null"){  LASTREGISTRATIONREMINDER=null;}else{ LASTREGISTRATIONREMINDER=values[40];}
 
 
-                    System.out.println("THIS IS THE DATE WHEN IS WAS CREATED"+CREATED);
+                    System.out.println("THIS IS THE DATE WHEN IS WAS CREATED"+AD_USER_ID+"somethimg");
 
-                    if(Arrays.asList(myArray).contains(AD_USER_ID)) {
+                    if(Arrays.asList(myArray).contains(AD_USER_ID) /*|| AD_USER_ID=="0"*/) {
                         System.out.println("this user already exists");
                     }else {
-                        stmt.executeUpdate("insert into AD_USER values (" + AD_USER_ID + " ,'1000000' ,'1000000', '"+ISACTIVE+"' ,TO_DATE(' " + CREATED + "   ', 'yyyy-mm-dd hh:mi:ss') ,'100' ,TO_DATE('2010-03-09 12:39:06' ,'yyyy-mm-dd hh:mi:ss'), '100', 'Pierre' ,null, '5e0c7831afecea6a' , '" + EMAIL + "', null ,'1000683' ,'N' ,'psp@audaxis.com','d7f2ac10a0321ab42c48267ccd969c98' ,'1000553',null, null ,null, null ,null ,null, null, null ,null, null, null ,null ,null ,'Y' ,null, 'E',null ,'pierre' ,null ,null ,null ,'N' ," + LASTREGISTRATIONREMINDER + " )");
+                        stmt.executeUpdate("insert into AD_USER values (" + AD_USER_ID+"1" + " ,'1000000' ,'1000000', '"+ISACTIVE+"' ,TO_DATE(' " + CREATED + "   ', 'yyyy-mm-dd hh24:mi:ss') ,'100' ,TO_DATE('2010-03-09 12:39:06' ,'yyyy-mm-dd hh:mi:ss'), '100', 'Pierre' ,null, '5e0c7831afecea6a' , '" + EMAIL + "', null ,'1000683' ,'N' ,'psp@audaxis.com','d7f2ac10a0321ab42c48267ccd969c98' ,'1000553',null, null ,null, null ,null ,null, null, null ,null, null, null ,null ,null ,'Y' ,null, 'E',null ,'pierre' ,null ,null ,null ,'N' ," + LASTREGISTRATIONREMINDER + " )");
                         System.out.println("added the user with ;"+AD_USER_ID);
                     }
 
