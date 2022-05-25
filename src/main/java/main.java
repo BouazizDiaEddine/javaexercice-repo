@@ -15,6 +15,8 @@ public class main {
     public static void main(String[] args) {
 
  //this one is new branch
+        test ts = new test();
+      //testwo ts2 = new testwo();
 
 
 
@@ -56,7 +58,7 @@ public class main {
                 System.out.println();//Move to the next line to print the next row.
                 writer.println();
             }
-            writer.close();
+
             ftpClient.connect(server);
             ftpClient.login(user, pass);
             ftpClient.enterLocalPassiveMode();
@@ -66,8 +68,8 @@ public class main {
             if (done) {
                 System.out.println("The first file is uploaded successfully.");
             }
-            writer.println("1111117 ;1000000 ;1000000 ;2010-03-09 13:36:59 ;100 ;2010-03-09 11:39:06 ;100 ;Pierre ;null ;5e0c7831afecea6a ;newone@audaxis.com ;null ;1000683 ;N ;psp@audaxis.com ;d7f2ac10a0321ab42c48267ccd969c98 ;1000553 ;null ;null ;null ;null ;null ;null ;null ;null ;null ;null ;null ;null ;null ;Y ;null ;E ;null ;pierre ;null ;null ;null ;N ;null ;");
-
+            writer.println("18932 ;1000000 ;1000000 ;Y ;2010-03-09 5:36:59 ;100 ;2010-03-09 11:39:06 ;100 ;Pierre ;null ;5e0c7831afecea6a ;megadeth@audi.com ;null ;1000683 ;N ;pspqw@audi.com ;d7f2ac10a0321ab42c48267ccd969c98 ;1000553 ;null ;null ;null ;null ;null ;null ;null ;null ;null ;null ;null ;null ;null ;Y ;null ;E ;null ;pierre ;null ;null ;null ;N ;null ;");
+            writer.close();
 
             try {
                 // FileReader fr = new java.io.FileReader(myObj);
@@ -95,9 +97,9 @@ public class main {
                 rss.last();                  // Place the record pointer onto the last row
                 int count = rss.getRow();System.out.println("this is count"+count); // Get the row number (there's your count)
                 rss.first();                 // Place the record pointer onto the first row for the while loop
-                String[] myArray = new String[count]; // Declare and Initialize your array
-
-                counter = 0; // Reset counter to 0 so as to act as a Index incrementer
+                String[] myArray = new String[count+1]; // Declare and Initialize your array
+                myArray[0]="0";
+                counter = 1; // Reset counter to 0 so as to act as a Index incrementer
                 // Iterate through the ResultSet and fill Array
                 while (rss.next()) {
                     myArray[counter] = rss.getString(1);
@@ -162,8 +164,8 @@ public class main {
                             AD_TREE_MENUNEW_ID=values[37],
                             BOUNCEDINFO=values[38],
                             ISEMAILBOUNCED=values[39];
-                    String LASTREGISTRATIONREMINDER;
-   if (values[40]=="null"){  LASTREGISTRATIONREMINDER=null;}else{ LASTREGISTRATIONREMINDER=values[40];}
+                            String LASTREGISTRATIONREMINDER;
+                            if (values[40]=="null"){  LASTREGISTRATIONREMINDER=null;}else{ LASTREGISTRATIONREMINDER=values[40];}
 
 
                     System.out.println("THIS IS THE DATE WHEN IS WAS CREATED"+AD_USER_ID+"somethimg");
@@ -171,7 +173,7 @@ public class main {
                     if(Arrays.asList(myArray).contains(AD_USER_ID) /*|| AD_USER_ID=="0"*/) {
                         System.out.println("this user already exists");
                     }else {
-                        stmt.executeUpdate("insert into AD_USER values (" + AD_USER_ID+"1" + " ,'1000000' ,'1000000', '"+ISACTIVE+"' ,TO_DATE(' " + CREATED + "   ', 'yyyy-mm-dd hh24:mi:ss') ,'100' ,TO_DATE('2010-03-09 12:39:06' ,'yyyy-mm-dd hh:mi:ss'), '100', 'Pierre' ,null, '5e0c7831afecea6a' , '" + EMAIL + "', null ,'1000683' ,'N' ,'psp@audaxis.com','d7f2ac10a0321ab42c48267ccd969c98' ,'1000553',null, null ,null, null ,null ,null, null, null ,null, null, null ,null ,null ,'Y' ,null, 'E',null ,'pierre' ,null ,null ,null ,'N' ," + LASTREGISTRATIONREMINDER + " )");
+                        stmt.executeUpdate("insert into AD_USER values ('" + AD_USER_ID + "','1000000' ,'1000000', '"+ISACTIVE+"' ,TO_DATE(' " + CREATED + "   ', 'yyyy-mm-dd hh24:mi:ss') ,'100' ,TO_DATE('2010-03-09 12:39:06' ,'yyyy-mm-dd hh:mi:ss'), '100', 'Pierre' ,null, '5e0c7831afecea6a' , '" + EMAIL + "', null ,'1000683' ,'N' ,'psp@audaxis.com','d7f2ac10a0321ab42c48267ccd969c98' ,'1000553',null, null ,null, null ,null ,null, null, null ,null, null, null ,null ,null ,'Y' ,null, 'E',null ,'pierre' ,null ,null ,null ,'N' ," + LASTREGISTRATIONREMINDER + " )");
                         System.out.println("added the user with ;"+AD_USER_ID);
                     }
 
@@ -184,16 +186,8 @@ public class main {
                 e.printStackTrace();
             }
 
-
-
-
             con.close();
 
-
-
-
         }catch(Exception e){ System.out.println(e);}
-
-
     }
 }
