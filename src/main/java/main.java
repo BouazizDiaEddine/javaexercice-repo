@@ -98,7 +98,7 @@ public class main {
                 String[] myArray = new String[count]; // Declare and Initialize your array
 
                 counter = 0; // Reset counter to 0 so as to act as a Index incrementer
-// Iterate through the ResultSet and fill Array
+                // Iterate through the ResultSet and fill Array
                 while (rss.next()) {
                     myArray[counter] = rss.getString(1);
                     System.out.println(myArray[counter]);
@@ -108,7 +108,7 @@ public class main {
                     System.out.println("THIS IS THE ID LIST"+myArray[i]);
                 }
 
-// See what's in Array...
+                // See what's in Array...
 
                 for (int i = 0; i < list.size(); i++) {
                     System.out.println("the list content is here"+list.get(i).toString());
@@ -188,7 +188,6 @@ public class main {
 
 
             con.close();
-
 
 
 
