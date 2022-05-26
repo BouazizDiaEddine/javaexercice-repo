@@ -1,3 +1,5 @@
+import javafx.scene.paint.Color;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -76,6 +78,26 @@ public class test {
 
                 testwo ts2 = new testwo();
                 frame.setVisible(false);
+            }
+        });
+        testConnactionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Class.forName("oracle.jdbc.driver.OracleDriver");
+                    Connection con = DriverManager.getConnection(
+                            "jdbc:oracle:thin:@"+textField3.getText()+":"+textField2.getText()+":"+textField4.getText(), textField1.getText(), passwordField1.getText());
+                    Statement stmt = con.createStatement();
+                    ResultSet rs = stmt.executeQuery("select * from ad_user");
+                    if(rs.next()){
+                        JOptionPane.showMessageDialog(frame,"Connection Established");
+                    }
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frame,ex.getMessage());
+                    //lblMessage.setText(e.getMessage());
+                    //lblMessage.setTextFill(Color.RED);
+                    System.out.println(ex);
+                }
             }
         });
     }
