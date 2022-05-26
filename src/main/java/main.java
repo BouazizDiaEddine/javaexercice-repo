@@ -1,7 +1,5 @@
-import com.formdev.flatlaf.IntelliJTheme;
-import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
 import org.apache.commons.net.ftp.FTPClient;
-
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,7 +14,7 @@ public class main {
 
 
         try {
-            UIManager.setLookAndFeel(new FlatArcOrangeIJTheme());
+            UIManager.setLookAndFeel(new FlatArcDarkOrangeIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
             throw new RuntimeException(e);
         }
