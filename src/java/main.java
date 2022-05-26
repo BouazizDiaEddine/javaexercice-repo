@@ -6,13 +6,24 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Scanner;
 
-import org.apache.commons.net.ftp.FTP;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.IntelliJTheme;
 import org.apache.commons.net.ftp.FTPClient;
+
+import javax.swing.*;
+
 public class main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+        try {
+            UIManager.setLookAndFeel( new FlatLightLaf() );
+        } catch( Exception ex ) {
+            System.err.println( "Failed to initialize LaF" );
+        }
+        IntelliJTheme.setup(test.class.getResourceAsStream(
+                "arc-theme-orange.theme.json"));
+
 
  //this one is new branch
         test ts = new test();

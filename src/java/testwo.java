@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.sql.Connection;
 
 public class testwo {
     private JPanel panel1;
