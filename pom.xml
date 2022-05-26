@@ -18,11 +18,9 @@
             <artifactId>commons-net</artifactId>
             <version>3.8.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.formdev</groupId>
-            <artifactId>flatlaf-intellij-themes</artifactId>
-            <version>2.2</version>
-        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.formdev/flatlaf -->
+        <!-- https://mvnrepository.com/artifact/com.formdev/flatlaf -->
 
 
     </dependencies>

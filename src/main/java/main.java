@@ -1,19 +1,20 @@
+
+
+
+
 import com.formdev.flatlaf.IntelliJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import org.apache.commons.net.ftp.FTPClient;
 
+import javax.swing.*;
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
-import javax.swing.*;
-
 public class main {
     public static void main(String[] args) {
-
 
         try {
             UIManager.setLookAndFeel(new FlatArcOrangeIJTheme());
@@ -22,9 +23,7 @@ public class main {
         }
 
 
-
-
-        test ts = new test();
+        test t = new test();
         //testwo ts2 = new testwo();
 
 
