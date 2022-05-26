@@ -15,7 +15,7 @@ public class main {
     public static void main(String[] args) {
 
 
-        //test ts = new test();
+        test ts = new test();
       //testwo ts2 = new testwo();
 
 
