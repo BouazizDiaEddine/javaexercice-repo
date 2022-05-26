@@ -14,8 +14,8 @@ import org.apache.commons.net.ftp.FTPClient;
 public class main {
     public static void main(String[] args) {
 
- //this one is new branch
-        test ts = new test();
+
+        //test ts = new test();
       //testwo ts2 = new testwo();
 
 
@@ -32,7 +32,7 @@ public class main {
 
 
 
-            Connection con=DriverManager.getConnection("jdbc:oracle:thin:@192.168.30.14:1521:TEST",
+            Connection con=DriverManager.getConnection("jdbc:oracle:thin:@192.168.30.64:1521:TEST",
                     "dia",
                     "admin");
 
@@ -51,11 +51,11 @@ public class main {
 
                 for(int i = 1 ; i <= columnsNumber; i++){
 
-                    System.out.print(rs.getString(i) + " ;"); //Print one element of a row
+                   // System.out.print(rs.getString(i) + " ;"); //Print one element of a row
                     writer.print(rs.getString(i) + " ;");
                 }
 
-                System.out.println();//Move to the next line to print the next row.
+              //  System.out.println();//Move to the next line to print the next row.
                 writer.println();
             }
 
@@ -72,8 +72,7 @@ public class main {
             writer.close();
 
             try {
-                // FileReader fr = new java.io.FileReader(myObj);
-                // BufferedReader br = new BufferedReader(fr);
+
                 File fis=new File("table_file.txt");
                 Scanner sc=new Scanner(fis);
 
@@ -85,7 +84,7 @@ public class main {
 
                     String row = sc.nextLine();
                     list.add(row);
-                    System.out.println("row:"+ row);
+                    // System.out.println("row:"+ row);
                 }
 
                 sc.close();
@@ -95,7 +94,7 @@ public class main {
                 ResultSet rss = stmt.executeQuery("select ad_user_id from ad_user"); // Get your ResultSet from Database
 
                 rss.last();                  // Place the record pointer onto the last row
-                int count = rss.getRow();System.out.println("this is count"+count); // Get the row number (there's your count)
+                int count = rss.getRow();    // System.out.println("this is count"+count); // Get the row number (there's your count)
                 rss.first();                 // Place the record pointer onto the first row for the while loop
                 String[] myArray = new String[count+1]; // Declare and Initialize your array
                 myArray[0]="0";
@@ -103,10 +102,10 @@ public class main {
                 // Iterate through the ResultSet and fill Array
                 while (rss.next()) {
                     myArray[counter] = rss.getString(1);
-                    System.out.println(myArray[counter]);
+                    //System.out.println(myArray[counter]);
                     counter++;
                 }
-                for (int i =0; i<myArray.length ;i++){
+               /* for (int i =0; i<myArray.length ;i++){
                     System.out.println("THIS IS THE ID LIST"+myArray[i]);
                 }
 
@@ -114,10 +113,10 @@ public class main {
 
                 for (int i = 0; i < list.size(); i++) {
                     System.out.println("the list content is here"+list.get(i).toString());
-                }
+                }*/
 
                 for (int i = 0; i < list.size(); i++) {
-                    System.out.println("this is the list size"+list.size());
+                   // System.out.println("this is the list size"+list.size());
                     strLine = list.get(i).toString();
                     String[] values = strLine.split(" ;");
                     /*for (int b=0 ;b< values.length;b++){
@@ -168,7 +167,7 @@ public class main {
                             if (values[40]=="null"){  LASTREGISTRATIONREMINDER=null;}else{ LASTREGISTRATIONREMINDER=values[40];}
 
 
-                    System.out.println("THIS IS THE DATE WHEN IS WAS CREATED"+AD_USER_ID+"somethimg");
+                   // System.out.println("THIS IS THE DATE WHEN IS WAS CREATED"+AD_USER_ID+"somethimg");
 
                     if(Arrays.asList(myArray).contains(AD_USER_ID) /*|| AD_USER_ID=="0"*/) {
                         System.out.println("this user already exists");
